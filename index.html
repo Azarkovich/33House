@@ -1,12 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <header class="site-header">
+        <nav class="nav">
+            <a href="#" class="logo-bubble">
+                <img src="logos/33houseregular.jpeg" alt="33 HOUSE"> 
+                <span> 33 HOUSE </span> 
+            </a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#inscriptions">Inscription</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">&#9776;</button>
+        </nav>
+
+        <section id="accueil" class="hero">
+            <h1>TOURNOI 4X4 - 33 HOUSE </h1>
+            <p id="countdown"></p>
+            <p>Un événement créé par la street, pour la street.</p>
+        </section>
+    </header>
+
+
+   <!-- À PROPOS -->
+    <section class="section">
+        <h2>À  propos</h2>
+        <p>Le 33 HOUSE Basketball Tournament est un tournoi 4x4 unique, entre le 3x3 et le 5x5, qui se tiendra au Playground emblématique
+            du parc des 33 hectares à Neuilly-sur-Marne.</p>
+        <p>
+            Objectif : faire découvrir le terrain, mettre en lumière la marque Solwet, et réunir la street autour d'une journée intense.
+        </p>
+    </section>
+
+
+    <!-- RÈGLEMENT -->
+     <section class="section">
+        <h2>Règlement</h2>
+        <ul>
+            <li>Format 4x4 - pas de lancer-francs</li>
+            <li>Celui qui marque garde la balle (ressort à 3pts)</li>
+            <li>Balle ressortie après : panier, faute ou sortie </li>
+            <li>Début : balle au shoot · Balle coincée = balle à l’attaque</li>
+            <li>Ligne à 3 pts active comme en 5x5</li>
+        </ul>
+     </section>
+
+
+    <!-- INFOS PRATIQUES -->
+    <section class="section">
+        <h2>Infos Pratiques</h2>
+        <p><strong>Date : </strong>À venir.</p>
+        <p><strong>Lieu : </strong>Playground - Parc des 33 hectares, Rue Louis Antoine de Bougainville, 93330 Neuilly-sur-Marne</p>
+        <p><strong>Accès : </strong>RER A (Neuilly-Plaisance), RER E (Chenay-Gagny), Bus 203 (Bougainville), Bus 303 (Rue des Pommiers).</p>
+        <p><strong>Horaires : </strong>Arrivée joueurs : 9h00 · Matchs : 11h00 · Finales : Gymnase Henri Deglane.</p>
+    </section>
+
+
+    <main>
+        <section id="inscriptions" class="section">
+            <h2>Inscriptions</h2>
+            <p>Sélectionnez votre catégorie et remplissez le formulaire ci dessous pour vous inscrire. </p>
+            <button id="openModalEquipe" class="btn">INSCRIRE MON ÉQUIPE</button>
+            <button id="openModal" class="btn">JE SUIS MÉDIA / CRÉATEUR</button>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>Pour toute question, écrivez-nous à<a href="mailto:33house93@gmail.com"> 33house93@gmail.com</a></p>
+        </section>
+
+        <section class="section">
+            <h2> En partenariat avec</h2>
+            <div class="partners">
+                <img src="logos/nsmlogo.png" alt="Mairie" class="partner-logo">
+                <img src="logos/logojwb2.png" alt="JustWanaBall" class="partner-logo">
+            </div>
+        </section>
+
+    </main>
+
+    <!--Créer les cases droit à l'image  / Acceptation des conditions du tournoi required-->
+    <!-- Envoyer un mail de confirmation pour les inscriptions (A voir) -->
+     <!-- Créer des formulaires distincts pour les medias / joueurs-->
+
+    <footer class="site-footer">
+        <p>&copy;Xavier-Bonheur TOKO-PROUST</p>
+    </footer>
+
+
+    <!-- MODAL EQUIPE -->
+            <div id="modalEquipe" class="modal">
+                <div class="modal-content">
+                    <form action="traitement.php" method="POST">
+                        <label for="categorie">Catégorie : </label>
+                        <select name="categorie" id="categorie" required>
+                            <option value="U15/U17"> U15 / U17</option>
+                            <option value="U20/Seniors"> U20 / Séniors</option>
+                        </select>
+
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" required><br/>
+
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="prenom" required><br/>
+
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" required><br/>
+
+                        <label for="age">Âge :</label>
+                        <input type="number" id="age" name="age" required><br/>
+
+                        <label for="telephone">Téléphone :</label>
+                        <input type="tel" id="telephone" name="telephone" required><br/>   
+
+                        <label><input type="checkbox" name="droit_image">J'autorise l'utilisation de mon image</label>
+                        <label><input type="checkbox" name="conditions">J'accepte les conditions du réglement du tournoi</label>
+
+                        <span class="close-modal" onclick="closeModals()">x</span>
+                        <input type="submit" value="S'inscrire">
+                    </form>
+                </div>
+            </div>
+
+            <!--MODAL MEDIA -->
+            <div id="modalMedia" class="modal">
+                <div class="modal-content">
+                    <form action="traitement.php" method="POST">
+
+                        <label for="nom_media">Nom :</label>
+                        <input type="text" id="nom_media" name="nom" required>
+
+                        <label for="prenom_media">Prénom :</label>
+                        <input type="text" id="prenom_media" name="prenom" required>
+
+                        <label for="structure">Média / Structure :</label>
+                        <input type="text" id="structure" name="structure">
+
+                        <label for="email_media">Email :</label>
+                        <input type="email" id="email_media" name="email" required>
+
+                        <label for="telephone_media">Téléphone :</label>
+                        <input type="tel" id="telephone_media" name="telephone" required>
+
+                        <label for="portfolio">Instagram / Portfolio :</label>
+                        <input type="text" id="portfolio" name="portfolio">
+
+                        <label for="materiel">Matériel utilisé :</label>
+                        <input type="text" id="materiel" name="materiel">
+
+                        <label for="contenu">Type de contenu prévu :</label>
+                        <input type="text" id="contenu" name="contenu">
+
+                        <label><input type="checkbox" name="droit_image" required> J’ai l’autorisation de diffuser l’image des joueurs</label>
+                        <label><input type="checkbox" name="conditions" required> Je m’engage à respecter les règles de l’événement</label>
+
+                        <input type="submit" value="Valider mon inscription média">
+                        <span class="close-modal" onclick="closeModals()">x</span>
+                    </form>
+                </div>
+            </div>
+
+            
+    <script src="script.js"></script>
+    <div id="confirmationMessage" class="confirmation hidden">
+        ✅ Inscription envoyée avec succès ! Nous vous recontacterons bientôt.
+    </div>
     
 </body>
 </html>
